@@ -27,6 +27,7 @@ module MarvelLibraryManager
     raise 'Must set MARVEL_PRIV_API_KEY env variable' unless @private_api_key
     raise 'Must set MARVEL_SERIES_ID env variable' unless @series_id
     raise 'Must set MARVEL_SITE_COOKIE env variable' unless @marvel_site_cookie
+    puts "Data provided by Marvel. © 2014 Marvel"
     p = get_params() << ["orderBy", "issueNumber"] << ["noVariants", "true"] << ["hasDigitalIssue", "true"] << ["limit", "99"] << ["offset", "0"]
     to_hit = URI(@base_url)
     to_hit.query = URI.encode_www_form(p)
@@ -35,7 +36,6 @@ module MarvelLibraryManager
     open (to_hit) do |f|
       page = JSON.parse(f.read)
     end
-    #pp page
     pp page["data"]
     series_id = page["data"]["results"].map do |c|
       urls = c["urls"].select do |u|
@@ -56,6 +56,7 @@ module MarvelLibraryManager
       add_to_library s[0], s[2]
       sleep(1.0/4.0)
     end
+    puts "Data provided by Marvel. © 2014 Marvel"
   end
 
   def self.run2(args)

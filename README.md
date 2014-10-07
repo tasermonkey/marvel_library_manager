@@ -40,3 +40,7 @@ I added to the `.gitignore` file to ignore the file `.env` so that people can ad
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create a new Pull Request
+
+## Attribution
+
+Data provided by Marvel. © 2014 Marvel
