@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+
+require 'marvel_library_manager'
+MarvelLibraryManager.run(ARGV)
